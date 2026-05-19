@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { CursorGlow } from "./cursor-glow";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Bound in Shadows",
   description:
-    "A dark fantasy website for Bound in Shadows, a saga of buried oaths, silver lanterns, and a city that remembers in secret.",
+    "The official site for Bound in Shadows, a dark fantasy action game by Ofir Dror.",
 };
 
 export default function RootLayout({
@@ -28,7 +29,10 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <CursorGlow />
+        {children}
+      </body>
     </html>
   );
 }
