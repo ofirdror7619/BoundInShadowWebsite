@@ -6,35 +6,36 @@ import {
   PlayCircle,
   ShieldHalf,
   Sparkles,
-  Swords,
 } from "lucide-react";
+import { ScreenshotGallery } from "./screenshot-gallery";
 
-const gameplayFeatures = [
+const screenshots = [
   {
-    icon: Swords,
-    title: "Shadow-driven combat",
-    text: "Close the distance, punish openings, and chain abilities built around dark energy and momentum.",
+    src: "/screenshot-1.jpg",
+    alt: "Gameplay screenshot from Bound in Shadows.",
+    title: "Screenshot 1",
+    width: 1679,
+    height: 1049,
   },
   {
-    icon: ShieldHalf,
-    title: "Survival over spectacle",
-    text: "Every encounter is tuned around timing, positioning, and learning when to strike or retreat.",
+    src: "/screenshot-2.jpg",
+    alt: "Gameplay screenshot from Bound in Shadows.",
+    title: "Screenshot 2",
+    width: 1679,
+    height: 1049,
   },
   {
-    icon: Sparkles,
-    title: "Power that changes you",
-    text: "Collect souls, unlock upgrades, and evolve into something more dangerous than the enemies hunting you.",
+    src: "/screenshot-3.jpg",
+    alt: "Gameplay screenshot from Bound in Shadows.",
+    title: "Screenshot 3",
+    width: 1679,
+    height: 1043,
   },
 ];
 
-const betaNotes = [
-  "Windows beta build V1.0",
-  "Opening cinematic and first playable slice",
-  "Core movement, combat, enemies, and progression",
-  "Built for feedback ahead of the 2026 release",
-];
-
-const betaDownloadHref = "/Bound-In-Shadows-Beta-V1.0.exe";
+const betaDownloadHref =
+  "https://github.com/ofirdror7619/BoundInShadowWebsite/raw/refs/heads/main/public/Bound-In-Shadows-Beta-V1.0.exe";
+const cleanPlayerSrc = "/player.png?clean=20260519";
 
 export default function Home() {
   return (
@@ -44,18 +45,19 @@ export default function Home() {
     >
       <section className="relative min-h-[88svh] overflow-hidden bg-[#050202]">
         <div className="absolute inset-0 bg-[linear-gradient(115deg,#050202_0%,#110505_42%,#30070a_72%,#050202_100%)]" />
-        <div className="absolute inset-y-0 right-[-42vw] top-8 flex w-[132vw] items-end justify-center opacity-45 sm:right-[-26vw] sm:w-[104vw] sm:opacity-60 md:opacity-75 lg:right-[-6vw] lg:w-[58vw] lg:opacity-100 xl:right-[2vw]">
+        <div className="pointer-events-none absolute inset-y-0 right-[-44vw] top-8 flex w-[136vw] items-end justify-center opacity-100 sm:right-[-26vw] sm:w-[104vw] lg:right-[-6vw] lg:w-[58vw] xl:right-[2vw]">
           <Image
-            src="/player.png"
+            src={cleanPlayerSrc}
             alt="The winged shadow player character in black armor with red ember light."
             width={1024}
             height={1536}
-            priority
+            preload
+            unoptimized
             sizes="(min-width: 1280px) 48vw, (min-width: 1024px) 56vw, 120vw"
-            className="h-[80svh] max-h-[860px] w-auto object-contain object-bottom mix-blend-lighten drop-shadow-[0_34px_90px_rgba(127,17,27,0.42)] sm:h-[86svh] lg:h-[90svh]"
+            className="h-[80svh] max-h-[860px] w-auto object-contain object-bottom drop-shadow-[0_34px_90px_rgba(127,17,27,0.58)] sm:h-[86svh] lg:h-[90svh]"
           />
         </div>
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,#050202_0%,rgba(5,2,2,0.96)_34%,rgba(5,2,2,0.54)_62%,rgba(5,2,2,0.14)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,#050202_0%,rgba(5,2,2,0.96)_34%,rgba(5,2,2,0.46)_62%,rgba(5,2,2,0.04)_100%)]" />
         <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-[#050202] via-[#050202]/72 to-transparent" />
 
         <div className="relative z-10 mx-auto flex min-h-[88svh] w-full max-w-7xl flex-col px-5 py-5 sm:px-8 lg:px-10">
@@ -67,6 +69,9 @@ export default function Home() {
               Bound in Shadows
             </a>
             <nav className="hidden items-center gap-8 text-sm text-[#d9b96f] md:flex">
+              <a className="transition hover:text-[#fff8df]" href="#about">
+                About
+              </a>
               <a className="transition hover:text-[#fff8df]" href="#intro">
                 Intro
               </a>
@@ -76,11 +81,8 @@ export default function Home() {
               <a className="transition hover:text-[#fff8df]" href="#download">
                 Download
               </a>
-              <a className="transition hover:text-[#fff8df]" href="#gameplay">
-                Gameplay
-              </a>
-              <a className="transition hover:text-[#fff8df]" href="#beta">
-                Beta
+              <a className="transition hover:text-[#fff8df]" href="#screenshots">
+                Screenshots
               </a>
             </nav>
             <a
@@ -105,26 +107,10 @@ export default function Home() {
                 Descend into a broken realm, master the dark, and turn the
                 power hunting you into the weapon that carries you forward.
               </p>
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <a
-                  href="#download"
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#d6a039] px-5 text-sm font-semibold text-[#120203] transition hover:bg-[#ffe49a]"
-                >
-                  Download Beta
-                  <Download size={17} aria-hidden="true" />
-                </a>
-                <a
-                  href="#intro"
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-[#d6a039]/35 bg-[#140506]/60 px-5 text-sm font-semibold text-[#f8ead1] backdrop-blur transition hover:border-[#f2c76b] hover:bg-[#7f111b] hover:text-white"
-                >
-                  Watch the Intro
-                  <PlayCircle size={17} aria-hidden="true" />
-                </a>
-              </div>
             </div>
           </div>
 
-          <div className="grid gap-3 border-t border-[#d6a039]/20 py-5 text-sm text-[#dfc7a2] sm:grid-cols-3">
+          <div className="flex flex-col items-center justify-center gap-3 border-t border-[#d6a039]/20 py-5 text-sm text-[#dfc7a2] sm:flex-row sm:gap-24">
             <p className="flex items-center gap-2">
               <CalendarDays size={16} className="text-[#f2c76b]" aria-hidden="true" />
               2026 release
@@ -133,17 +119,66 @@ export default function Home() {
               <ShieldHalf size={16} className="text-[#f2c76b]" aria-hidden="true" />
               Windows beta
             </p>
-            <p className="flex items-center gap-2">
-              <Swords size={16} className="text-[#f2c76b]" aria-hidden="true" />
-              Shadow combat
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="about"
+        className="border-y border-[#d6a039]/18 bg-[#0b0505] px-5 py-16 sm:px-8 sm:py-20 lg:px-10"
+      >
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div>
+            <p className="inline-flex items-center gap-2 text-sm font-semibold tracking-[0.28em] text-[#f2c76b] uppercase">
+              <Sparkles size={17} aria-hidden="true" />
+              About the game
             </p>
+            <h2 className="mt-4 font-serif text-4xl leading-tight text-[#fff8df] text-balance sm:text-6xl">
+              A dark fantasy journey through power, ruin, and shadow.
+            </h2>
+          </div>
+
+          <div className="space-y-6 text-lg leading-8 text-[#c9a889]">
+            <p>
+              Bound in Shadows is an action game set in a broken realm where
+              darkness is both a threat and a weapon. You play as a warrior
+              marked by shadow, fighting through hostile lands while uncovering
+              the force that changed the world.
+            </p>
+            <p>
+              The beta focuses on fast combat, atmospheric exploration, and a
+              grim fantasy tone built around flames, ruins, and supernatural
+              power.
+            </p>
+            <div className="grid gap-3 pt-2 sm:grid-cols-3">
+              <div className="rounded-lg border border-[#d6a039]/24 bg-[#160607] p-4">
+                <p className="text-sm font-semibold text-[#f2c76b] uppercase">
+                  Genre
+                </p>
+                <p className="mt-2 text-base text-[#fff8df]">
+                  Dark fantasy action
+                </p>
+              </div>
+              <div className="rounded-lg border border-[#d6a039]/24 bg-[#160607] p-4">
+                <p className="text-sm font-semibold text-[#f2c76b] uppercase">
+                  Platform
+                </p>
+                <p className="mt-2 text-base text-[#fff8df]">Windows PC</p>
+              </div>
+              <div className="rounded-lg border border-[#d6a039]/24 bg-[#160607] p-4">
+                <p className="text-sm font-semibold text-[#f2c76b] uppercase">
+                  Creator
+                </p>
+                <p className="mt-2 text-base text-[#fff8df]">Ofir Dror</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       <section
         id="intro"
-        className="border-y border-[#d6a039]/18 bg-[#0b0505] px-5 py-16 sm:px-8 sm:py-20 lg:px-10"
+        className="bg-[#050202] px-5 py-16 sm:px-8 sm:py-20 lg:px-10"
       >
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:items-center">
           <div>
@@ -256,7 +291,6 @@ export default function Home() {
               </div>
               <a
                 href={betaDownloadHref}
-                download
                 className="inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-md bg-[#d6a039] px-5 text-sm font-semibold text-[#120203] transition hover:bg-[#ffe49a]"
               >
                 Download
@@ -272,127 +306,25 @@ export default function Home() {
       </section>
 
       <section
-        id="gameplay"
+        id="screenshots"
         className="bg-[#160607] px-5 py-12 text-[#f8ead1] sm:px-8 sm:py-20 lg:px-10"
       >
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
           <div>
             <p className="text-sm font-semibold tracking-[0.28em] text-[#f2c76b] uppercase">
-              Gameplay
+              Screenshots
             </p>
             <h2 className="mt-4 font-serif text-4xl leading-tight text-balance text-[#fff8df] sm:text-5xl">
-              Become the thing the darkness should have feared.
+              Glimpses from the world beneath the flame.
             </h2>
           </div>
           <p className="max-w-3xl text-lg leading-8 text-[#d9b99b]">
-            Bound in Shadows is built around direct control: move through
-            hostile spaces, fight with intent, gather power, and push deeper
-            into a world that rewards players who learn its rhythm.
+            Step through moonlit ruins, face the burning kingdom, and see the
+            shadow form waiting at the center of Bound in Shadows.
           </p>
         </div>
 
-        <div className="mx-auto mt-14 grid max-w-7xl gap-4 md:grid-cols-3">
-          {gameplayFeatures.map((feature) => {
-            const Icon = feature.icon;
-
-            return (
-              <article
-                key={feature.title}
-                className="rounded-lg border border-[#d6a039]/22 bg-[#090202]/76 p-6 shadow-[0_18px_55px_rgba(0,0,0,0.22)]"
-              >
-                <Icon size={24} className="text-[#f2c76b]" aria-hidden="true" />
-                <h3 className="mt-5 font-serif text-2xl text-[#fff8df]">
-                  {feature.title}
-                </h3>
-                <p className="mt-3 leading-7 text-[#c9a889]">{feature.text}</p>
-              </article>
-            );
-          })}
-        </div>
-      </section>
-
-      <section
-        id="beta"
-        className="border-y border-[#d6a039]/18 bg-[#050202] px-5 py-20 sm:px-8 lg:px-10"
-      >
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-          <div>
-            <p className="text-sm font-semibold tracking-[0.28em] text-[#f2c76b] uppercase">
-              Beta V1.0
-            </p>
-            <h2 className="mt-4 font-serif text-4xl leading-tight text-[#fff8df] sm:text-5xl">
-              A playable first step into Bound in Shadows.
-            </h2>
-            <p className="mt-6 max-w-xl leading-7 text-[#c9a889]">
-              The beta should feel like the first real handshake with the game:
-              clear, atmospheric, and focused on what players can actually try
-              today.
-            </p>
-          </div>
-
-          <div className="grid gap-4">
-            {betaNotes.map((note, index) => (
-              <div
-                key={note}
-                className="flex items-center gap-5 border-b border-[#d6a039]/16 pb-5 last:border-b-0 last:pb-0"
-              >
-                <span className="font-mono text-sm text-[#f2c76b]">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <p className="text-lg text-[#f8ead1]">{note}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="enter" className="bg-[#0b0505] px-5 py-20 text-[#f8ead1] sm:px-8 lg:px-10">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-          <div>
-            <p className="text-sm font-semibold tracking-[0.28em] text-[#f2c76b] uppercase">
-              Play the beta
-            </p>
-            <h2 className="mt-4 font-serif text-4xl leading-tight text-balance text-[#fff8df] sm:text-6xl">
-              Download the current build and step into the shadows.
-            </h2>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#c9a889]">
-              Bound in Shadows Beta V1.0 is available now for Windows. The full
-              game is planned for 2026.
-            </p>
-          </div>
-
-          <div className="rounded-lg border border-[#d6a039]/28 bg-[#160607] p-6 shadow-[0_24px_70px_rgba(127,17,27,0.26)]">
-            <div>
-              <p className="text-sm font-semibold tracking-[0.22em] text-[#f2c76b] uppercase">
-                Windows beta
-              </p>
-              <h3 className="mt-3 font-serif text-3xl text-[#fff8df]">
-                V1.0 installer
-              </h3>
-              <p className="mt-3 leading-7 text-[#c9a889]">
-                EXE download, 1.76 GB. Best played on a Windows PC with enough
-                disk space for the installer and game files.
-              </p>
-            </div>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <a
-                href={betaDownloadHref}
-                download
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#d6a039] px-5 text-sm font-semibold text-[#120203] transition hover:bg-[#ffe49a]"
-              >
-                Download Beta
-                <Download size={17} aria-hidden="true" />
-              </a>
-              <a
-                href="#intro"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-[#d6a039]/35 bg-[#050202]/70 px-5 text-sm font-semibold text-[#f8ead1] transition hover:border-[#f2c76b] hover:bg-[#7f111b]"
-              >
-                Watch Intro
-                <ChevronRight size={17} aria-hidden="true" />
-              </a>
-            </div>
-          </div>
-        </div>
+        <ScreenshotGallery screenshots={screenshots} />
       </section>
 
       <footer className="border-t border-[#d6a039]/18 bg-[#050202] px-5 py-7 text-center text-sm text-[#c9a889] sm:px-8 lg:px-10">
