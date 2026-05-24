@@ -34,7 +34,7 @@ const screenshots = [
 ];
 
 const betaDownloadHref =
-  "https://github.com/ofirdror7619/BoundInShadowWebsite/raw/refs/heads/main/public/Bound-In-Shadows-Beta-V1.0.exe";
+  "https://github.com/ofirdror7619/BoundInShadowWebsite/raw/refs/heads/main/public/Bound%20In%20Shadows%20Beta%20V1.01.rar";
 const cleanPlayerSrc = "/player.png?clean=20260519";
 
 export default function Home() {
@@ -268,7 +268,7 @@ export default function Home() {
               Download
             </p>
             <h2 className="mt-4 font-serif text-4xl leading-tight text-[#fff8df] text-balance sm:text-6xl">
-              Bound in Shadows Beta V1.0 is ready to play.
+              Bound in Shadows Beta V1.01 is ready to play.
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[#c9a889]">
               Download the Windows beta build and step into the broken world
@@ -283,10 +283,10 @@ export default function Home() {
                   Windows beta
                 </p>
                 <h3 className="mt-3 font-serif text-3xl text-[#fff8df]">
-                  V1.0 installer
+                  V1.01 archive
                 </h3>
                 <p className="mt-3 text-[#c9a889]">
-                  EXE download, 1.76 GB
+                  RAR download, 1.86 GB
                 </p>
               </div>
               <a
